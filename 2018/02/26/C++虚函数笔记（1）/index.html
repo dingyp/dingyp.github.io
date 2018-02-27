@@ -7,12 +7,13 @@
 
     
 
-    <title>初 | Melodic</title>
+    <title>C++虚函数笔记（1） | Melodic</title>
     <meta name="author" content="Yipeng Ding" />
     <meta name="version" content="1.0.0" />
     <meta name="keywords" content="" />
-    <meta name="description" content="重新搞了个博客，以后尽量在这里更新所有的文章。
-" />
+    <meta name="description" content="C++虚函数简单介绍如果派生类在继承了基类后直接重写了基类的某个方法，当使用基类指针指向派生类实例时，调用的方法其实是调用的父类的方法。要实现多态，则需要使用虚函数。（动态多态性）
+内存泄露如果同样是上面的情况,需要释放两个指针指向的空间时，则会造成内存泄漏，因为在默认情况下调用的析构函数是基类的析构函数，而没有调用子类的析构函数。
+123456Shape *shape1=new Circle(4.0);Shape *shape2=new Rect(3.0,5.0);delete shape1;" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
     <meta name="baidu-site-verification" content="F0CXvmUgA9" />
@@ -95,32 +96,7 @@
         
 
         
-        <div class="author-meta">
-            
-            <div class="author-avatar">
-                <a href="/">
-                    <img src="/images/avatar.jpg" title="Sanonz">
-                </a>
-            </div>
-            
-            <div class="author-name">Yipeng Ding</div>
-            <div class="author-work">College Student</div>
-            <div class="author-location">
-                <i class="icon-location vm"></i>
-                <span class="vm">Suzhou, China</span>
-            </div>
-            
-            <div class="author-thread-wrap">
-                <div class="author-threads clearfix">
-                    
-                    <a class="thread-item" href="https://github.com/dingyp" target="_blank"><i class="icon-github"></i></a>
-                    
-                    
-                    
-                </div>
-            </div>
-            
-        </div>
+        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#C-虚函数简单介绍"><span class="toc-number">1.</span> <span class="toc-text">C++虚函数简单介绍</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#内存泄露"><span class="toc-number">2.</span> <span class="toc-text">内存泄露</span></a></li></ol>
         
     </div>
 </aside>
@@ -132,25 +108,33 @@
     <header class="article-header">
         
         <h1 itemprop="name">
-            初
+            C++虚函数笔记（1）
         </h1>
         
         <div class="article-meta clearfix">
-            <a class="article-date" href="/2018/02/26/初/">
+            <a class="article-date" href="/2018/02/26/C++虚函数笔记（1）/">
     
     <i class="icon-calendar"></i>
     
-    <time datetime="2018-02-26T06:39:54.000Z" itemprop="datePublished">2018-02-26</time>
+    <time datetime="2018-02-26T07:58:04.000Z" itemprop="datePublished">2018-02-26</time>
 </a>
 
             
+<div class="article-tag-list">
+    <i class="icon-tag"></i>
+    <a class="article-tag-link" href="/tags/C-C-基础/">C/C++基础</a>
+</div>
+
 
         </div>
     </header>
     
     <section class="article-body markdown-body">
         
-        <p>重新搞了个博客，以后尽量在这里更新所有的文章。</p>
+        <h4 id="C-虚函数简单介绍"><a href="#C-虚函数简单介绍" class="headerlink" title="C++虚函数简单介绍"></a>C++虚函数简单介绍</h4><p>如果派生类在继承了基类后直接重写了基类的某个方法，当使用基类指针指向派生类实例时，调用的方法其实是调用的父类的方法。要实现多态，则需要使用虚函数。（动态多态性）</p>
+<h4 id="内存泄露"><a href="#内存泄露" class="headerlink" title="内存泄露"></a>内存泄露</h4><p>如果同样是上面的情况,需要释放两个指针指向的空间时，则会造成内存泄漏，因为在默认情况下调用的析构函数是基类的析构函数，而没有调用子类的析构函数。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">Shape *shape1=<span class="keyword">new</span> Circle(<span class="number">4.0</span>);</span><br><span class="line">Shape *shape2=<span class="keyword">new</span> Rect(<span class="number">3.0</span>,<span class="number">5.0</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">delete</span> shape1;</span><br><span class="line"><span class="keyword">delete</span> shape2;</span><br></pre></td></tr></table></figure>
+<p>如果在基类的析构函数声明虚函数，这样基类指针指向的是哪个对象，销毁的时候派生类的析构函数也会执行，再执行基类的构造函数。</p>
 
         
     </section>
@@ -165,9 +149,9 @@
     <script>
     window.disqus_config = function () {
         this.language = 'zh';
-        this.page.url = '/2018/02/26/初/';
-        this.page.title = '初';
-        this.page.identifier = '2018/02/26/初/';
+        this.page.url = '/2018/02/26/C++虚函数笔记（1）/';
+        this.page.title = 'C++虚函数笔记（1）';
+        this.page.identifier = '2018/02/26/C++虚函数笔记（1）/';
     };
     (function() { // DON'T EDIT BELOW THIS LINE
         var d = document, s = d.createElement('script');
