@@ -51,7 +51,7 @@
         <span class="vm">标签</span>
     </h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C-C-基础/">C/C++基础</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C基础/">C基础</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/图像处理/">图像处理</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C-C-基础/">C/C++基础</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/图像处理/">图像处理</a></li></ul>
     </div>
   </div>
 
@@ -68,13 +68,13 @@
         
         
         <li class="nav-item">
-            <a class="nav-link" href="/atom.xml">订阅</a>
+            <a class="nav-link" href="/">订阅</a>
         </li>
         
         
         
         <li class="nav-item">
-            <a class="nav-link" href="/about">关于</a>
+            <a class="nav-link" href="/">关于</a>
         </li>
         
         
@@ -157,6 +157,52 @@
 <h4 id="内存泄露"><a href="#内存泄露" class="headerlink" title="内存泄露"></a>内存泄露</h4><p>如果同样是上面的情况,需要释放两个指针指向的空间时，则会造成内存泄漏，因为在默认情况下调用的析构函数是基类的析构函数，而没有调用子类的析构函数。</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">Shape *shape1=<span class="keyword">new</span> Circle(<span class="number">4.0</span>);</span><br><span class="line">Shape *shape2=<span class="keyword">new</span> Rect(<span class="number">3.0</span>,<span class="number">5.0</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">delete</span> shape1;</span><br><span class="line"><span class="keyword">delete</span> shape2;</span><br></pre></td></tr></table></figure>
 <p>如果在基类的析构函数声明虚函数，这样基类指针指向的是哪个对象，销毁的时候派生类的析构函数也会执行，再执行基类的构造函数。</p>
+
+        
+    </section>
+</article>
+
+
+    <article class="article" itemscope itemprop="blogPost">
+    
+    <header class="article-header">
+        
+        <h1 itemprop="name">
+            <a href="/2018/02/26/C变量存储/">C变量存储</a>
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <a class="article-date" href="/2018/02/26/C变量存储/">
+    
+    <i class="icon-calendar"></i>
+    
+    <time datetime="2018-02-26T07:58:04.000Z" itemprop="datePublished">2018-02-26</time>
+</a>
+
+            
+<div class="article-tag-list">
+    <i class="icon-tag"></i>
+    <a class="article-tag-link" href="/tags/C-C-基础/">C/C++基础</a>
+</div>
+
+
+        </div>
+    </header>
+    
+    <section class="article-body markdown-body">
+        
+        <ul>
+<li><p>栈，就是那些由编译器在需要的时候分配，在不需要的时候自动清除的变量的存储区。里面的变量通常是局部变量、函数参数等。在一个进程中，位于用户虚拟地址空间顶部的是用户栈，编译器用它来实现函数的调用。和堆一样，用户栈在程序执行期间可以动态地扩展和收缩。</p>
+</li>
+<li><p>堆，就是那些由 new 分配的内存块，他们的释放编译器不去管，由我们的应用程序去控制，一般一个 new 就要对应一个 delete。如果程序员没有释放掉，那么在程序结束后，操作系统会自动回收。堆可以动态地扩展和收缩。</p>
+</li>
+<li><p>自由存储区，就是那些由 malloc 等分配的内存块，他和堆是十分相似的，不过它是用 free 来结束自己的生命的。</p>
+</li>
+<li><p>全局/静态存储区，全局变量和静态变量被分配到同一块内存中，在以前的 C 语言中，全局变量又分为初始化的和未初始化的（初始化的全局变量和静态变量在一块区域，未初始化的全局变量与静态变量在相邻的另一块区域，同时未被初始化的对象存储区可以通过 void* 来访问和操纵，程序结束后由系统自行释放），在 C++ 里面没有这个区分了，他们共同占用同一块内存区。</p>
+</li>
+<li><p>常量存储区，这是一块比较特殊的存储区，他们里面存放的是常量，不允许修改（当然，你要通过非正当手段也可以修改，而且方法很多）</p>
+</li>
+</ul>
 
         
     </section>
