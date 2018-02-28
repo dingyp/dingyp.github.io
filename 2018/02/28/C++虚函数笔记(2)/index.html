@@ -7,11 +7,15 @@
 
     
 
-    <title>Tag: C/C++基础 | Melodic</title>
+    <title>C++虚函数笔记(2) | Melodic</title>
     <meta name="author" content="Yipeng Ding" />
     <meta name="version" content="1.0.0" />
     <meta name="keywords" content="" />
-    <meta name="description" content="" />
+    <meta name="description" content="本文转载自CSDN C++虚函数表解析
+虚函数虚函数就是用virtual来修饰的函数。虚函数是实现C++多态的基础。
+虚函数表每个类都会为自己类的虚函数创建一个表，来存放类内部的虚函数成员。
+在这个表中，主是要一个类的虚函数的地址表，这张表解决了继承、覆盖的问题，保证其容真实反应实际的函数。这样，在有虚函数的类的实例中这个表被分配在了这个实例的内存中，所以，当我们用父类的指针来操作一个子类的时候，这张虚函数表就显得由为重要了，它就像一个地图一样，指明了实际所应该调用的函数。
+这里我们着重看一下这" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
     <meta name="baidu-site-verification" content="F0CXvmUgA9" />
@@ -90,47 +94,23 @@
 
         
         
+        
+        
 
         
-        <div class="author-meta">
-            
-            <div class="author-avatar">
-                <a href="/">
-                    <img src="/images/avatar.jpg" title="Sanonz">
-                </a>
-            </div>
-            
-            <div class="author-name">Yipeng Ding</div>
-            <div class="author-work">College Student</div>
-            <div class="author-location">
-                <i class="icon-location vm"></i>
-                <span class="vm">Suzhou, China</span>
-            </div>
-            
-            <div class="author-thread-wrap">
-                <div class="author-threads clearfix">
-                    
-                    <a class="thread-item" href="https://github.com/dingyp" target="_blank"><i class="icon-github"></i></a>
-                    
-                    
-                    
-                </div>
-            </div>
-            
-        </div>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#虚函数"><span class="toc-number">1.</span> <span class="toc-text">虚函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#虚函数表"><span class="toc-number">2.</span> <span class="toc-text">虚函数表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实例"><span class="toc-number">3.</span> <span class="toc-text">实例</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#实际运行经果如下："><span class="toc-number">3.0.0.1.</span> <span class="toc-text">实际运行经果如下：</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#示例图如下所示："><span class="toc-number">3.0.0.2.</span> <span class="toc-text">示例图如下所示：</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#一般继承"><span class="toc-number">4.</span> <span class="toc-text">一般继承</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#多重继承"><span class="toc-number">5.</span> <span class="toc-text">多重继承</span></a></li></ol>
         
     </div>
 </aside>
 
 </header>
 
-        <div id="content" class="content">
-    <article class="article" itemscope itemprop="blogPost">
+        <div id="content" class="content"><article class="article" itemscope itemprop="blogPost">
     
     <header class="article-header">
         
         <h1 itemprop="name">
-            <a href="/2018/02/28/C++虚函数笔记(2)/">C++虚函数笔记(2)</a>
+            C++虚函数笔记(2)
         </h1>
         
         <div class="article-meta clearfix">
@@ -196,92 +176,27 @@
 </article>
 
 
-    <article class="article" itemscope itemprop="blogPost">
-    
-    <header class="article-header">
-        
-        <h1 itemprop="name">
-            <a href="/2018/02/26/C变量存储/">C变量存储</a>
-        </h1>
-        
-        <div class="article-meta clearfix">
-            <a class="article-date" href="/2018/02/26/C变量存储/">
-    
-    <i class="icon-calendar"></i>
-    
-    <time datetime="2018-02-26T07:58:04.000Z" itemprop="datePublished">2018-02-26</time>
-</a>
 
-            
-<div class="article-tag-list">
-    <i class="icon-tag"></i>
-    <a class="article-tag-link" href="/tags/C-C-基础/">C/C++基础</a>
+<div class="comments">
+    <div id="disqus_thread">
+        <p class="comment-tips">国内查看评论需要代理~</p>
+    </div>
+    <script>
+    window.disqus_config = function () {
+        this.language = 'zh';
+        this.page.url = '/2018/02/28/C++虚函数笔记(2)/';
+        this.page.title = 'C++虚函数笔记(2)';
+        this.page.identifier = '2018/02/28/C++虚函数笔记(2)/';
+    };
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = 'https://name.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 </div>
-
-
-        </div>
-    </header>
-    
-    <section class="article-body markdown-body">
-        
-        <ul>
-<li><p>栈，就是那些由编译器在需要的时候分配，在不需要的时候自动清除的变量的存储区。里面的变量通常是局部变量、函数参数等。在一个进程中，位于用户虚拟地址空间顶部的是用户栈，编译器用它来实现函数的调用。和堆一样，用户栈在程序执行期间可以动态地扩展和收缩。</p>
-</li>
-<li><p>堆，就是那些由 new 分配的内存块，他们的释放编译器不去管，由我们的应用程序去控制，一般一个 new 就要对应一个 delete。如果程序员没有释放掉，那么在程序结束后，操作系统会自动回收。堆可以动态地扩展和收缩。</p>
-</li>
-<li><p>自由存储区，就是那些由 malloc 等分配的内存块，他和堆是十分相似的，不过它是用 free 来结束自己的生命的。</p>
-</li>
-<li><p>全局/静态存储区，全局变量和静态变量被分配到同一块内存中，在以前的 C 语言中，全局变量又分为初始化的和未初始化的（初始化的全局变量和静态变量在一块区域，未初始化的全局变量与静态变量在相邻的另一块区域，同时未被初始化的对象存储区可以通过 void* 来访问和操纵，程序结束后由系统自行释放），在 C++ 里面没有这个区分了，他们共同占用同一块内存区。</p>
-</li>
-<li><p>常量存储区，这是一块比较特殊的存储区，他们里面存放的是常量，不允许修改（当然，你要通过非正当手段也可以修改，而且方法很多）</p>
-</li>
-</ul>
-
-        
-    </section>
-</article>
-
-
-    <article class="article" itemscope itemprop="blogPost">
-    
-    <header class="article-header">
-        
-        <h1 itemprop="name">
-            <a href="/2018/02/26/C++虚函数笔记（1）/">C++虚函数笔记（1）</a>
-        </h1>
-        
-        <div class="article-meta clearfix">
-            <a class="article-date" href="/2018/02/26/C++虚函数笔记（1）/">
-    
-    <i class="icon-calendar"></i>
-    
-    <time datetime="2018-02-26T07:58:04.000Z" itemprop="datePublished">2018-02-26</time>
-</a>
-
-            
-<div class="article-tag-list">
-    <i class="icon-tag"></i>
-    <a class="article-tag-link" href="/tags/C-C-基础/">C/C++基础</a>
-</div>
-
-
-        </div>
-    </header>
-    
-    <section class="article-body markdown-body">
-        
-        <h4 id="C-虚函数简单介绍"><a href="#C-虚函数简单介绍" class="headerlink" title="C++虚函数简单介绍"></a>C++虚函数简单介绍</h4><p>如果派生类在继承了基类后直接重写了基类的某个方法，当使用基类指针指向派生类实例时，调用的方法其实是调用的父类的方法。要实现多态，则需要使用虚函数。（动态多态性）</p>
-<h4 id="内存泄露"><a href="#内存泄露" class="headerlink" title="内存泄露"></a>内存泄露</h4><p>如果同样是上面的情况,需要释放两个指针指向的空间时，则会造成内存泄漏，因为在默认情况下调用的析构函数是基类的析构函数，而没有调用子类的析构函数。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">Shape *shape1=<span class="keyword">new</span> Circle(<span class="number">4.0</span>);</span><br><span class="line">Shape *shape2=<span class="keyword">new</span> Rect(<span class="number">3.0</span>,<span class="number">5.0</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">delete</span> shape1;</span><br><span class="line"><span class="keyword">delete</span> shape2;</span><br></pre></td></tr></table></figure>
-<p>如果在基类的析构函数声明虚函数，这样基类指针指向的是哪个对象，销毁的时候派生类的析构函数也会执行，再执行基类的构造函数。</p>
-
-        
-    </section>
-</article>
-
-
-
-
 
 </div>
         <footer class="footer">
@@ -294,6 +209,8 @@
     </div>
 
     <script type="text/javascript" src="https://cdn.bootcss.com/jquery/1.9.0/jquery.min.js"></script>
+    
+    <script type="text/javascript" src="/js/scrollspy.min.js"></script>
     
     <script type="text/javascript">
         $(function() {
@@ -315,6 +232,8 @@
                 nodes.navTags.removeClass('tag-show');
             });*/
 
+            
+            $(document.body).scrollspy({target: '#aside-inner'});
             
         });
     </script>
