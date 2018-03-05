@@ -163,21 +163,21 @@
 <li>第一步建立与原图一样大小的mask图像，并将所有像素初始化为0，因此全图成了一张全黑色图。</li>
 <li>第二步将mask图中的r1区域的所有像素值设置为255,也就是整个r1区域变成了白色。<br>这样就能得到Mask图像了。</li>
 </ul>
-<p><img src="http://i4.bvimg.com/634956/624275fb1c072b8f.png" alt="pic"></p>
+<p><img src="http://p54ffe117.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20180305202056.png" alt="pic"></p>
 <p>注意这句，哪个图像拷贝到哪个图像？<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">image.copyTo(img2, mask);</span><br></pre></td></tr></table></figure></p>
 <p>当然是原始图image拷贝到目的图img2上啦。<br>其实拷贝的动作完整版本是这样的：</p>
 <p>原图(image)与掩膜(mask)进行与运算后得到了结果图（img2）。</p>
 <p>掩膜的与运算其实就是原图中的每个像素和掩膜中的每个对应像素进行与运算。比如1 &amp; 1 = 1；1 &amp; 0 = 0；</p>
-<p>比如一个3x3的图像与3x3的掩膜进行运算，得到的结果图像就是：</p>
-<p><img src="http://i4.bvimg.com/634956/67500448de56d0eb.png" alt="pic"></p>
-<p>所以运行结果如下<br><img src="http://i4.bvimg.com/634956/d421dceb84e6b2d2.png" alt="pic"></p>
+<p>比如一个3x3的图像与3 * 3的掩膜进行运算，得到的结果图像就是：</p>
+<p><img src="http://p54ffe117.bkt.clouddn.com/1093303-20170523162741085-745592981.png" alt="pic"></p>
+<p>所以运行结果如下<br><img src="http://p54ffe117.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20180305214005.png" alt="pic"></p>
 <p>下面两句代码所做的事情跟上面的差不多，首先将原始图image拷贝一份给img3，然后img3将mask白色区域设置为0（黑色），好比如果mask中像素非0的，我就把我图像对应的那个点的像素值设置为0，否则啥也不做。伪代码是if mask(i,j)&gt;0 then img3(i,j)=0。</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">image.copyTo(img3);</span><br><span class="line">img3.setTo(<span class="number">0</span>, mask);</span><br></pre></td></tr></table></figure>
-<p><img src="http://i4.bvimg.com/634956/73e0299cfe53cb01.png" alt="pic"></p>
+<p><img src="http://p54ffe117.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20180305202023.png" alt="pic"></p>
 <p>如果要得到扣出的目标区域，这样写就可以了</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">img1 = image(r1);</span><br></pre></td></tr></table></figure>
 <p>运行结果：</p>
-<p><img src="http://i4.bvimg.com/634956/fa63a327e6644282.png" alt="pic"></p>
+<p><img src="http://p54ffe117.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20180305202031.png" alt="pic"></p>
 
         
     </section>
