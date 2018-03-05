@@ -169,7 +169,7 @@
 <p>原图(image)与掩膜(mask)进行与运算后得到了结果图（img2）。</p>
 <p>掩膜的与运算其实就是原图中的每个像素和掩膜中的每个对应像素进行与运算。比如1 &amp; 1 = 1；1 &amp; 0 = 0；</p>
 <p>比如一个3x3的图像与3x3的掩膜进行运算，得到的结果图像就是：</p>
-<p><img src="https://images2015.cnblogs.com/blog/1093303/201705/1093303-20170523162741085-745592981.png" alt="pic"></p>
+<p><img src="http://i4.bvimg.com/634956/67500448de56d0eb.png" alt="pic"></p>
 <p>所以运行结果如下<br><img src="http://i4.bvimg.com/634956/d421dceb84e6b2d2.png" alt="pic"></p>
 <p>下面两句代码所做的事情跟上面的差不多，首先将原始图image拷贝一份给img3，然后img3将mask白色区域设置为0（黑色），好比如果mask中像素非0的，我就把我图像对应的那个点的像素值设置为0，否则啥也不做。伪代码是if mask(i,j)&gt;0 then img3(i,j)=0。</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">image.copyTo(img3);</span><br><span class="line">img3.setTo(<span class="number">0</span>, mask);</span><br></pre></td></tr></table></figure>
